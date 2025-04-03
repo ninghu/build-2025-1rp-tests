@@ -4,10 +4,10 @@ This repo has the following files
 
 | Functionality | Test Mode     | Asset | Details  |
 |----------|----------|----------|--|
-| Control Plane| REST API in VS Code | [control-plane-tests.http](./vscode_rest_client/control-plane-tests.http)  | REST API calls to create, list and get accounts, projects, connections and deployments in the FDP resource (aka 1RP)|
-| Control Plane| REST API in Bruno | [ControlPlaneTesting-Bruno.json](./bruno/ControlPlaneTesting-Bruno.json)  | REST API calls to create, list and get accounts, projects, connections and deployments in the FDP resource (aka 1RP)|
-| Data Plane| REST API in VS Code | [data-plane-tests.http](./vscode_rest_client/data-plane-tests.http)  | REST API Calls for data plane to list and get deployments, connections, indexes and datasets. This file will be updated with more cases as they become available|
-| Data Plane| REST API in Bruno | [DataPlaneTesting-Bruno.json](./bruno/DataPlaneTesting-Bruno.json)  | REST API Calls for data plane to list and get deployments, connections, indexes and datasets. This file will be updated with more cases as they become available|
+| Control Plane| REST API - VS Code | [control-plane-tests.http](./vscode_rest_client/control-plane-tests.http)  | REST API calls to create, list and get accounts, projects, connections and deployments in the FDP resource (aka 1RP)|
+| | REST API - Bruno | [ControlPlaneTesting-Bruno.json](./bruno/ControlPlaneTesting-Bruno.json)  | REST API calls to create, list and get accounts, projects, connections and deployments in the FDP resource (aka 1RP)|
+| Data Plane| REST API - VS Code | [data-plane-tests.http](./vscode_rest_client/data-plane-tests.http)  | REST API Calls for data plane to list and get deployments, connections, indexes and datasets. This file will be updated with more cases as they become available|
+| | REST API - Bruno | [DataPlaneTesting-Bruno.json](./bruno/DataPlaneTesting-Bruno.json)  | REST API Calls for data plane to list and get deployments, connections, indexes and datasets. This file will be updated with more cases as they become available|
 |E2E | UI | Use [int.ai.azure.com?flight=FDP](https://int.ai.azure.com?flight=FDP) | This week the focus is project creation and left nav with placeholders for experiences that aren't yet built out.|
 
 ## Common Pre-reqs
