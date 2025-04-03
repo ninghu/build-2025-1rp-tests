@@ -30,7 +30,7 @@ This repo has the following files
 * Open the .http file
 * Replace the variables (@variable_name) with appropriate values
 * Click on send request
-![image](./images/send_request.jpg)
+   ![image](./images/send_request.jpg)
 
 #### Control Plane Testing
 
@@ -54,7 +54,7 @@ This repo has the following files
 * Download and install from [Bruno](https://www.usebruno.com/downloads)
 * Open Bruno
 * Click on the `...`->`Import Collection`
-![image](./images/bruno_import.jpg)
+   ![image](./images/bruno_import.jpg)
 * Select the type `Bruno Collection`
 * Choose the control or data plane json files
 * Finish the import
@@ -62,7 +62,7 @@ This repo has the following files
 #### Control Plane Testing
 
 * On the Control plane COllection, click on the `...`->`Settings`
-![image](./images/controlplane_settings.jpg)
+   ![image](./images/controlplane_settings.jpg)
 * Click on the Vars tab
 * Provide appropriate values to the variables
 * Run tests for as many cases as possible
