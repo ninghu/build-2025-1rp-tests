@@ -1,16 +1,16 @@
 #------------------------------------------------------------------
 ### Configurations for testing
 #------------------------------------------------------------------
-@token= ENTER-YOUR-BEARER-TOKEN
-@subscription_id = ENTER-YOUR-SUB-ID
-@resource_group = ENTER-YOUR-RESOURCE-GROUP
-@account_name = ENTER-YOUR-ACCOUNT-NAME
-@project_name = ENTER-YOUR-PROJECT-NAME
+@token= ENTER-YOUR-BEARER-TOKEN-HERE
+@subscription_id = ENTER-YOUR-SUB-ID-HERE
+@resource_group = ENTER-YOUR-RESOURCE-GROUP-HERE
+@account_name = ENTER-YOUR-ACCOUNT-NAME-HERE
+@project_name = ENTER-YOUR-PROJECT-NAME-HERE
 
 #configurations for connections
-@connection_name = ENTER-YOUR-CONNECTION-NAME
-@connection_target = ENTER-THE-URL-OF-YOUR-AOAI-RESOURCE for e.g.https://namikhai-myaoaiservices.openai.azure.com/
-@connection_key = ENTER-API-KEY-FOR-YOUR-AOAI-RESOURCE
+@connection_name = ENTER-YOUR-CONNECTION-NAME-HERE
+@connection_target = ENTER-THE-URL-OF-YOUR-AOAI-RESOURCE-HERE for e.g.https://namikhai-myaoaiservices.openai.azure.com/
+@connection_key = ENTER-API-KEY-FOR-YOUR-AOAI-RESOURCE-HERE
 
 #Common variables - Dont change these variables for now
 @location_name = eastus2euap
