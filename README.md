@@ -39,6 +39,10 @@ This repo has the following files
   * To get the API Key open the account you created in Control Plane in the azure portal and copy the keys
 * Run tests for as many cases as possible in the file
 
+## Raise Bugs
+
+* Use the [aka.ms/fdpbug](https://aka.ms/fdpbug) bug template to log bugs
+
 ## Common Accounts to be reused (not recommended)
 
 We would recommend to create your own account in your sub for testing. However, in case of difficulties you can use the following common account for testing:
