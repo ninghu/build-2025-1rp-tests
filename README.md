@@ -15,30 +15,28 @@ This repo has the following files
 * You will need an azure subscription and a resource group
 * You will need to be allow-listed to create accounts and projects in Canary (eastus2euap). Check this [onenote](https://microsoft.sharepoint.com/teams/Vienna/_layouts/15/Doc.aspx?sourcedoc=%7B7ebf9ccd-fa20-4e82-8b2b-6c14c9f1740f%7D&action=edit&wd=target%28Engineering%2F1FoundryType.one%7C2b247bc6-d116-40be-994f-6e42405497dc%2FCreate+account+%28aka+virtual+hub%5C%29%7C7c3c9783-2e3c-4d9e-aa06-01cf80d78c00%2F%29&wdorigin=703) on how to get allow listed
 
-## REST API Testing
+## REST API Testing - Using VSCode
 
-### Using VSCode
-
-#### Setup VSCode
+### Setup VSCode
 
 * Clone this repo
 * Open in VS Code
 * Install the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 
-#### Using .http files
+### Using .http files
 
-* Open the .http file
+* Open the .http file in VSCode
 * Replace the variables (@variable_name) with appropriate values
 * Click on send request
   * ![image](./images/send_request.jpg)
 
-#### Control Plane Testing
+### Control Plane Testing - VSCode
 
 * Open the [control-plane-tests.http](./vscode_rest_client/control-plane-tests.http) file in VS Code
 * Replace the variables (@variable_name) with appropriate values
 * Run tests for as many cases as possible in the file
 
-#### Data Plane Testing
+### Data Plane Testing - VSCode
 
 * Open the [data-plane-tests.http](./vscode_rest_client/data-plane-tests.http) file in VS Code
 * Replace the variables (@variable_name) with appropriate values
@@ -46,9 +44,9 @@ This repo has the following files
   * To get the API Key open the account you created in Control Plane in the azure portal and copy the keys
 * Run tests for as many cases as possible in the file
 
-### Using Bruno
+## REST API Testing - Using Bruno
 
-#### Setup Bruno and Use
+### Setup Bruno and Use
 
 * Clone this repo
 * Download and install from [Bruno](https://www.usebruno.com/downloads)
@@ -59,7 +57,7 @@ This repo has the following files
 * Choose the control or data plane json files
 * Finish the import
 
-#### Control Plane Testing
+### Control Plane Testing - Bruno
 
 * On the Control plane COllection, click on the `...`->`Settings`
   * ![image](./images/controlplane_settings.jpg)
@@ -67,7 +65,7 @@ This repo has the following files
 * Provide appropriate values to the variables
 * Run tests for as many cases as possible
 
-#### Data Plane Testing
+### Data Plane Testing - Bruno
 
 * On the Data plane COllection, click on the `...`->`Settings`
 * Click on the Vars tab
