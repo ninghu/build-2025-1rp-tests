@@ -1,0 +1,641 @@
+{
+  "name": "ControlPlaneTesting",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "Create Account",
+      "filename": "Create Account.bru",
+      "seq": 2,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}?api-version={{api_version}}",
+        "method": "PUT",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"type\": \"Microsoft.CognitiveServices/accounts\",\n  \"name\": \"{{account_name}}\",\n  \"location\": \"{{location_name}}\",\n  \"kind\": \"AIServices\",\n  \"sku\": {\n    \"name\": \"S0\"\n  },\n  \"identity\": {\n    \"type\": \"SystemAssigned\"\n  },\n  \"properties\": {\n    \"isAiFoundryType\": true,\n    \"customSubDomainName\": \"{{account_name}}\",\n    \"publicNetworkAccess\": \"Enabled\",\n    \"networkAcls\": {\n      \"defaultAction\": \"Allow\",\n      \"virtualNetworkRules\": [],\n      \"ipRules\": []\n    },\n    \"publicNetworkAccess\": \"Enabled\",\n    \"disableLocalAuth\": false,\n    \"allowProjectManagement\": true\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Create Connection",
+      "filename": "Create Connection.bru",
+      "seq": 8,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}/projects/{{project_name}}/connections/{{connection_name}}?api-version={{api_version}}",
+        "method": "PUT",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"properties\": {\n    \"authType\": \"ApiKey\",\n    \"category\": \"AzureOpenAI\",\n    \"target\": \"https://oai-legacy-resource.openai.azure.com/\",\n    \"credentials\": {\n      \"key\": \"c50edc78ef9d4ebb9700f09379557fff\"\n    },\n    \"isSharedToAll\": true,\n    \"metadata\": {\n      \"ApiType\": \"Azure\",\n      \"Location\": \"{{location_name}}\",\n      \"ResourceId\": \"/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}\"\n    }\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Create Deployment",
+      "filename": "Create Deployment.bru",
+      "seq": 11,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}/deployments/{{deployment_name}}?api-version={{api_version}}",
+        "method": "PUT",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"sku\": {\n    \"name\": \"GlobalStandard\",\n    \"capacity\": 1\n  },\n  \"properties\": {\n    \"model\": {\n      \"format\": \"{{publisher}}\",\n      \"name\": \"{{deployment_name}}\",\n      \"version\": \"{{model_version}}\"\n    }\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Create Project",
+      "filename": "Create Project.bru",
+      "seq": 5,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}/projects/{{project_name}}?api-version={{api_version}}",
+        "method": "PUT",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"name\": \"{{account_name}}/{{project_name}}\",\n  \"location\": \"{{location_name}}\",\n  \"kind\": \"AIServices\",\n  \"type\": \"Microsoft.CognitiveServices/accounts/projects\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\"\n  },\n  \"sku\": {\n    \"name\": \"S0\"\n  },\n  \"properties\": {\n    \"customSubDomainName\": \"{{project_name}}\",\n    \"publicNetworkAccess\": \"Enabled\",\n    \"networkAcls\": {\n      \"defaultAction\": \"Allow\",\n      \"virtualNetworkRules\": [],\n      \"ipRules\": []\n    }\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get a Connection",
+      "filename": "Get a Connection.bru",
+      "seq": 10,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}/projects/{{project_name}}/connections/{{connection_name}}?api-version={{api_version}}",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "json": "{\n  \"properties\": {\n    \"authType\": \"ApiKey\",\n    \"category\": \"AzureOpenAI\",\n    \"target\": \"https://oai-legacy-resource.openai.azure.com/\",\n    \"credentials\": {\n      \"key\": \"c50edc78ef9d4ebb9700f09379557fff\"\n    },\n    \"isSharedToAll\": true,\n    \"metadata\": {\n      \"ApiType\": \"Azure\",\n      \"Location\": \"{{location_name}}\",\n      \"ResourceId\": \"/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}\"\n    }\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get a Deployment",
+      "filename": "Get a Deployment.bru",
+      "seq": 13,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}/deployments/{{deployment_name}}?api-version={{api_version}}",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "json": "{\n  \"sku\": {\n    \"name\": \"GlobalStandard\",\n    \"capacity\": 1\n  },\n  \"properties\": {\n    \"model\": {\n      \"format\": \"{{publisher}}\",\n      \"name\": \"{{deployment_name}}\",\n      \"version\": \"{{model_version}}\"\n    }\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get a project",
+      "filename": "Get a project.bru",
+      "seq": 7,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}/projects/{{project_name}}?api-version={{api_version}}",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "json": "{\n  \"name\": \"{{account_name}}/{{project_name}}\",\n  \"location\": \"{{location_name}}\",\n  \"kind\": \"AIServices\",\n  \"type\": \"Microsoft.CognitiveServices/accounts/projects\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\"\n  },\n  \"sku\": {\n    \"name\": \"S0\"\n  },\n  \"properties\": {\n    \"customSubDomainName\": \"{{project_name}}\",\n    \"publicNetworkAccess\": \"Enabled\",\n    \"networkAcls\": {\n      \"defaultAction\": \"Allow\",\n      \"virtualNetworkRules\": [],\n      \"ipRules\": []\n    }\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get An Account",
+      "filename": "Get An Account.bru",
+      "seq": 4,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}?api-version={{api_version}}",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "json": "{\n  \"type\": \"Microsoft.CognitiveServices/accounts\",\n  \"name\": \"{{account_name}}\",\n  \"location\": \"{{location_name}}\",\n  \"kind\": \"AIServices\",\n  \"sku\": {\n    \"name\": \"S0\"\n  },\n  \"identity\": {\n    \"type\": \"SystemAssigned\"\n  },\n  \"properties\": {\n    \"isAiFoundryType\": true,\n    \"customSubDomainName\": \"{{account_name}}\",\n    \"publicNetworkAccess\": \"Enabled\",\n    \"networkAcls\": {\n      \"defaultAction\": \"Allow\",\n      \"virtualNetworkRules\": [],\n      \"ipRules\": []\n    },\n    \"publicNetworkAccess\": \"Enabled\",\n    \"disableLocalAuth\": false,\n    \"allowProjectManagement\": true\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "List Accounts",
+      "filename": "List Accounts.bru",
+      "seq": 3,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts?api-version={{api_version}}",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "json": "{\n  \"type\": \"Microsoft.CognitiveServices/accounts\",\n  \"name\": \"{{account_name}}\",\n  \"location\": \"{{location_name}}\",\n  \"kind\": \"AIServices\",\n  \"sku\": {\n    \"name\": \"S0\"\n  },\n  \"identity\": {\n    \"type\": \"SystemAssigned\"\n  },\n  \"properties\": {\n    \"isAiFoundryType\": true,\n    \"customSubDomainName\": \"{{account_name}}\",\n    \"publicNetworkAccess\": \"Enabled\",\n    \"networkAcls\": {\n      \"defaultAction\": \"Allow\",\n      \"virtualNetworkRules\": [],\n      \"ipRules\": []\n    },\n    \"publicNetworkAccess\": \"Enabled\",\n    \"disableLocalAuth\": false,\n    \"allowProjectManagement\": true\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "List Connections",
+      "filename": "List Connections.bru",
+      "seq": 9,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}/projects/{{project_name}}/connections?api-version={{api_version}}",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "json": "{\n  \"properties\": {\n    \"authType\": \"ApiKey\",\n    \"category\": \"AzureOpenAI\",\n    \"target\": \"https://oai-legacy-resource.openai.azure.com/\",\n    \"credentials\": {\n      \"key\": \"c50edc78ef9d4ebb9700f09379557fff\"\n    },\n    \"isSharedToAll\": true,\n    \"metadata\": {\n      \"ApiType\": \"Azure\",\n      \"Location\": \"{{location_name}}\",\n      \"ResourceId\": \"/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}\"\n    }\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "List Deployments",
+      "filename": "List Deployments.bru",
+      "seq": 12,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}/deployments?api-version={{api_version}}",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "json": "{\n  \"sku\": {\n    \"name\": \"GlobalStandard\",\n    \"capacity\": 1\n  },\n  \"properties\": {\n    \"model\": {\n      \"format\": \"{{publisher}}\",\n      \"name\": \"{{deployment_name}}\",\n      \"version\": \"{{model_version}}\"\n    }\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "List Projects",
+      "filename": "List Projects.bru",
+      "seq": 6,
+      "request": {
+        "url": "https://{{location_name}}.management.azure.com/subscriptions/{{subscription_id}}/resourceGroups/{{resource_group}}/providers/Microsoft.CognitiveServices/accounts/{{account_name}}/projects?api-version={{api_version}}",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "params": [
+          {
+            "name": "api-version",
+            "value": "{{api_version}}",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "json": "{\n  \"name\": \"{{account_name}}/{{project_name}}\",\n  \"location\": \"{{location_name}}\",\n  \"kind\": \"AIServices\",\n  \"type\": \"Microsoft.CognitiveServices/accounts/projects\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\"\n  },\n  \"sku\": {\n    \"name\": \"S0\"\n  },\n  \"properties\": {\n    \"customSubDomainName\": \"{{project_name}}\",\n    \"publicNetworkAccess\": \"Enabled\",\n    \"networkAcls\": {\n      \"defaultAction\": \"Allow\",\n      \"virtualNetworkRules\": [],\n      \"ipRules\": []\n    }\n  }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "root": {
+    "request": {
+      "vars": {
+        "req": [
+          {
+            "name": "token",
+            "value": "",
+            "enabled": true,
+            "local": false,
+            "uid": "hiXsbfagPn8g1njKV3SVd"
+          },
+          {
+            "name": "api_version",
+            "value": "2025-04-01-preview",
+            "enabled": true,
+            "local": false,
+            "uid": "pxgtUMRMJpYua6oMG9tUS"
+          },
+          {
+            "name": "subscription_id",
+            "value": "",
+            "enabled": true,
+            "local": false,
+            "uid": "Y26J325iYqmxJz5pUwBZE"
+          },
+          {
+            "name": "resource_group",
+            "value": "",
+            "enabled": true,
+            "local": false,
+            "uid": "OZS3siH7qzuRL4XpMJ1vE"
+          },
+          {
+            "name": "account_name",
+            "value": "",
+            "enabled": true,
+            "local": false,
+            "uid": "gTZAtSt46CuEVlniByJEf"
+          },
+          {
+            "name": "project_name",
+            "value": "",
+            "enabled": true,
+            "local": false,
+            "uid": "2wu6Ik9soeNR9CLrwmheW"
+          },
+          {
+            "name": "location_name",
+            "value": "",
+            "enabled": true,
+            "local": false,
+            "uid": "RSDkzlsvieuDNmWe8v7Os"
+          },
+          {
+            "name": "connection_name",
+            "value": "",
+            "enabled": true,
+            "local": false,
+            "uid": "bvMHpopoKO5uWCDWhKBKh"
+          },
+          {
+            "name": "publisher",
+            "value": "Microsoft",
+            "enabled": true,
+            "local": false,
+            "uid": "obLcKVtUjaxNOF1rtg38I"
+          },
+          {
+            "name": "deployment_name",
+            "value": "Phi-4",
+            "enabled": true,
+            "local": false,
+            "uid": "IPdGHVeY5SV1lVdLTLXzr"
+          },
+          {
+            "name": "model_version",
+            "value": "7",
+            "enabled": true,
+            "local": false,
+            "uid": "LUfT8MAwGxDuiq8rDfjBu"
+          }
+        ]
+      }
+    }
+  },
+  "brunoConfig": {
+    "version": "1",
+    "name": "ControlPlaneTesting",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
+}

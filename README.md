@@ -2,43 +2,80 @@
 
 This repo has the following files
 
-| File     | Details  |
-|----------|----------|
-| [Control plane Tests](control-plane-tests.http)    | REST API calls to create, list and get accounts, projects, connections and deployments in the FDP resource (aka 1RP)|
-| [Data plane tests](data-plane-tests.http)    | REST API Calls for data plane. This file will be updated with more cases as they become available|
-| UI testing| Use [int.ai.azure.com?flight=FDP](https://int.ai.azure.com?flight=FDP) to test UI features. This week the focus is project creation and left nav with placeholders for experiences that aren't yet built out.|
-
-## Setup VS Code
-
-* Clone this repo
-* Open in VS Code
-* Install the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
-
-## Using .http files
-
-* Open the .http file
-* Replace the variables (@variable_name) with appropriate values
-* Click on send request
-![image](./images/send_request.jpg)
+| Functionality | Test Mode     | Asset | Details  |
+|----------|----------|----------|--|
+| Control Plane| REST API in VS Code | [control-plane-tests.http](./vscode_rest_client/control-plane-tests.http)  | REST API calls to create, list and get accounts, projects, connections and deployments in the FDP resource (aka 1RP)|
+| Control Plane| REST API in Bruno | [ControlPlaneTesting-Bruno.json](./bruno/ControlPlaneTesting-Bruno.json)  | REST API calls to create, list and get accounts, projects, connections and deployments in the FDP resource (aka 1RP)|
+| Data Plane| REST API in VS Code | [data-plane-tests.http](./vscode_rest_client/data-plane-tests.http)  | REST API Calls for data plane to list and get deployments, connections, indexes and datasets. This file will be updated with more cases as they become available|
+| Data Plane| REST API in Bruno | [DataPlaneTesting-Bruno.json](./bruno/DataPlaneTesting-Bruno.json)  | REST API Calls for data plane to list and get deployments, connections, indexes and datasets. This file will be updated with more cases as they become available|
+|E2E | UI | Use [int.ai.azure.com?flight=FDP](https://int.ai.azure.com?flight=FDP) | This week the focus is project creation and left nav with placeholders for experiences that aren't yet built out.|
 
 ## Common Pre-reqs
 
 * You will need an azure subscription and a resource group
 * You will need to be allow-listed to create accounts and projects in Canary (eastus2euap). Check this [onenote](https://microsoft.sharepoint.com/teams/Vienna/_layouts/15/Doc.aspx?sourcedoc=%7B7ebf9ccd-fa20-4e82-8b2b-6c14c9f1740f%7D&action=edit&wd=target%28Engineering%2F1FoundryType.one%7C2b247bc6-d116-40be-994f-6e42405497dc%2FCreate+account+%28aka+virtual+hub%5C%29%7C7c3c9783-2e3c-4d9e-aa06-01cf80d78c00%2F%29&wdorigin=703) on how to get allow listed
 
-## Control Plane Testing
+## REST API Testing
 
-* Open the [control-plane-tests.http](control-plane-tests.http) file in VS Code
+### Using VSCode
+
+#### Setup VSCode
+
+* Clone this repo
+* Open in VS Code
+* Install the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+
+#### Using .http files
+
+* Open the .http file
+* Replace the variables (@variable_name) with appropriate values
+* Click on send request
+![image](./images/send_request.jpg)
+
+#### Control Plane Testing
+
+* Open the [control-plane-tests.http](./vscode_rest_client/control-plane-tests.http) file in VS Code
 * Replace the variables (@variable_name) with appropriate values
 * Run tests for as many cases as possible in the file
 
-## Data Plane Testing
+#### Data Plane Testing
 
-* Open the [data-plane-tests.http](data-plane-tests.http) file in VS Code
+* Open the [data-plane-tests.http](./vscode_rest_client/data-plane-tests.http) file in VS Code
 * Replace the variables (@variable_name) with appropriate values
   * Currently we are using API Keys as a workaround for data plane - this will be replaced by Entra ID soon
   * To get the API Key open the account you created in Control Plane in the azure portal and copy the keys
 * Run tests for as many cases as possible in the file
+
+### Using Bruno
+
+#### Setup Bruno and Use
+
+* Clone this repo
+* Download and install from [Bruno](https://www.usebruno.com/downloads)
+* Open Bruno
+* Click on the `...`->`Import Collection`
+![image](./images/bruno_import.jpg)
+* Select the type `Bruno Collection`
+* Choose the control or data plane json files
+* Finish the import
+
+#### Control Plane Testing
+
+* On the Control plane COllection, click on the `...`->`Settings`
+![image](./images/controlplane_settings.jpg)
+* Click on the Vars tab
+* Provide appropriate values to the variables
+* Run tests for as many cases as possible
+
+#### Data Plane Testing
+
+* On the Data plane COllection, click on the `...`->`Settings`
+* Click on the Vars tab
+* Provide appropriate values to the variables
+* Run tests for as many cases as possible
+
+> Currently we are using API Keys as a workaround for data plane - this will be replaced by Entra ID soon
+> To get the API Key open the account in the azure portal and copy the keys
 
 ## Raise Bugs
 
