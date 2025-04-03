@@ -6,6 +6,7 @@ This repo has the following files
 |----------|----------|
 | [Control plane Tests](control-plane-tests.http)    | REST API calls to create, list and get accounts, projects, connections and deployments in the FDP resource (aka 1RP)|
 | [Data plane tests](data-plane-tests.http)    | REST API Calls for data plane. This file will be updated with more cases as they become available|
+| UI testing| Use [int.ai.azure.com?flight=FDP](https://int.ai.azure.com?flight=FDP) to test UI features|
 
 ## Setup VS Code
 
